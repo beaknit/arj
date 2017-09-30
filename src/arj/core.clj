@@ -9,6 +9,9 @@
     :default "blerg"]
   ["-h" "--help"]])
 
+(defn strip [s]
+  (clojure.string/replace s "\"" ""))
+
 (defn -main [& args]
   (let [x (:seed (:options (parse-opts args cli-options)))]
     (println x)
@@ -16,7 +19,7 @@
     (let [q (find-queue x)]
       (send-message q x)
       (let [m (:body (get (:messages (receive-message q)) 0))]
-        (println (clojure.string/replace m "\"" "")))))
+        (println strip(m)))))
 ;;    (pprint (:queue-urls(list-queues))))
 )
 
