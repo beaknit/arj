@@ -3,8 +3,8 @@
 [ahrf]
 
 interjection
-1.
-(used to imitate the bark of a dog).
+
+1. used to imitate the bark of a dog.
 
 ## Installation
 
