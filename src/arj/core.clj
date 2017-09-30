@@ -9,7 +9,7 @@
   ["-h" "--help"]])
 
 (defn -main [& args]
-  (parse-opts args cli-options)
-  (println "Hello, World!"))
+  (println (:seed (:options (parse-opts args cli-options))))
+)
 
 (list-tables)
