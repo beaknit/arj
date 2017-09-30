@@ -1,6 +1,7 @@
 (ns arj.core
   (:gen-class)
-  (:use [amazonica.aws.dynamodbv2])
+  (:use [amazonica.aws.sqs]
+        [clojure.pprint])
   (:require [clojure.tools.cli :refer [parse-opts]]))
 
 (def cli-options
@@ -10,7 +11,9 @@
 
 (defn -main [& args]
   (let [x (:seed (:options (parse-opts args cli-options)))]
-    (println x))
+    (println x)
+    (create-queue x)
+    (pprint (:queue-urls(list-queues))))
 )
 
-(list-tables)
+
