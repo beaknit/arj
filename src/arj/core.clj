@@ -9,17 +9,17 @@
     :default "blerg"]
   ["-h" "--help"]])
 
-(defn my_strip [s]
+(defn my-strip [s]
   (clojure.string/replace s "\"" ""))
 
 (defn -main [& args]
   (let [x (:seed (:options (parse-opts args cli-options)))]
-    (println x)
+    (println "Input:" x)
     (create-queue x)
     (let [q (find-queue x)]
       (send-message q x)
       (let [m (:body (get (:messages (receive-message q)) 0))]
-        (println (my_strip m)))))
+        (println "Output:" (my-strip m)))))
 ;;    (pprint (:queue-urls(list-queues))))
 )
 
