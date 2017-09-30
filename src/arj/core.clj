@@ -1,9 +1,15 @@
 (ns arj.core
-  (:use [amazonica.aws.dynamodbv2]))
+  (:gen-class)
+  (:use [amazonica.aws.dynamodbv2])
+  (:require [clojure.tools.cli :refer [parse-opts]]))
 
-(defn -main
-  "I don't do a whole lot ... yet."
-  [& args]
+(def cli-options
+  [["-s" "--seed SEED" "Seed Value"
+    :default "blerg"]
+  ["-h" "--help"]])
+
+(defn -main [& args]
+  (parse-opts args cli-options)
   (println "Hello, World!"))
 
 (list-tables)

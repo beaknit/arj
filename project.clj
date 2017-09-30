@@ -4,7 +4,7 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.8.0"]
-                 [amazonica "0.3.112"]]
-  :main ^:skip-aot arj.core
-  :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}})
+                 [amazonica "0.3.112"]
+                 [org.clojure/tools.cli "0.3.5"]]
+  :main arj.core
+  :aot [arj.core])
