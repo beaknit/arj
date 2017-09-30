@@ -13,7 +13,10 @@
   (let [x (:seed (:options (parse-opts args cli-options)))]
     (println x)
     (create-queue x)
-    (pprint (:queue-urls(list-queues))))
+    (let [q (find-queue x)]
+      (send-message q x)
+      (pprint(:body (get (:messages (receive-message q)) 0)))))
+;;    (pprint (:queue-urls(list-queues))))
 )
 
 
