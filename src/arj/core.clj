@@ -15,15 +15,17 @@
 (defn get-payload [q]
   (:body (get (:messages (receive-message q)) 0)))
 
+(defn get-seed [a]
+  (:seed (:options (parse-opts a cli-options))))
+
 (defn -main [& args]
-  (let [x (:seed (:options (parse-opts args cli-options)))]
+  (let [x (get-seed args)]
     (println "Input:" x)
     (create-queue x)
     (let [q (find-queue x)]
       (send-message q x)
       (let [m (get-payload q)]
         (println "Output:" (my-strip m)))))
-;;    (pprint (:queue-urls(list-queues))))
 )
 
 
