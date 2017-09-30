@@ -9,7 +9,7 @@
     :default "blerg"]
   ["-h" "--help"]])
 
-(defn strip [s]
+(defn my_strip [s]
   (clojure.string/replace s "\"" ""))
 
 (defn -main [& args]
@@ -19,7 +19,7 @@
     (let [q (find-queue x)]
       (send-message q x)
       (let [m (:body (get (:messages (receive-message q)) 0))]
-        (println strip(m)))))
+        (println (my_strip m)))))
 ;;    (pprint (:queue-urls(list-queues))))
 )
 
