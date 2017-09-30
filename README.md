@@ -1,16 +1,20 @@
 # arj
 
-FIXME: description
+[ahrf]
+
+interjection
+1.
+(used to imitate the bark of a dog).
 
 ## Installation
 
-Download from http://example.com/FIXME.
+    lein uberjar
 
 ## Usage
 
-FIXME: explanation
+Provide it with an optional seed value to get the arf going
 
-    $ java -jar arj-0.1.0-standalone.jar [args]
+    $ java -jar target/arj-0.1.0-SNAPSHOT-standalone.jar [-s | --seed SEED]
 
 ## Options
 
@@ -18,11 +22,11 @@ FIXME: listing of options this app accepts.
 
 ## Examples
 
-...
+    $ java -jar arj-0.1.0-standalone.jar -s flerf
 
 ### Bugs
 
-...
+ermegerd
 
 ### Any Other Sections
 ### That You Think
