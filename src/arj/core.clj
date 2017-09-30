@@ -15,7 +15,8 @@
     (create-queue x)
     (let [q (find-queue x)]
       (send-message q x)
-      (pprint(:body (get (:messages (receive-message q)) 0)))))
+      (let [m (:body (get (:messages (receive-message q)) 0))]
+        (println (clojure.string/replace m "\"" "")))))
 ;;    (pprint (:queue-urls(list-queues))))
 )
 
