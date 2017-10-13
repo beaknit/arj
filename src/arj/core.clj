@@ -15,10 +15,10 @@
   (clojure.string/replace s "\"" ""))
 
 (defn get-payload [q]
-  (:body (get (:messages (receive-message q)) 0)))
+  (-> (receive-message q) :messages (get 0) :body))
 
 (defn get-seed [a]
-  (:seed (:options (parse-opts a cli-options))))
+  (-> (parse-opts a cli-options) :options :seed))
 
 (def prefix "568697")
 
@@ -41,5 +41,3 @@
                     :file upload-file)
         )))
 )
-
-
