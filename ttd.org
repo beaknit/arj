@@ -1,0 +1,6 @@
+Things to Do:
+- [X] Move to Threading macro
+- [ ] Use a ref
+- [ ] Use an atom
+- [ ] Use an agent
+- [ ] Store the results using datalog
